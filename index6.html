@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chestnut Ridge Sewing - Calibration Guide</title>
+    <meta name="description" content="Official technical guide for adjusting your sewing cabinet lift.">
+    
+    <!-- Fonts: Combining the clean Inter with the technical Archivo/Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Archivo', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#b71c1c',
+                            darkRed: '#7f1d1d',
+                            black: '#111111',
+                            light: '#f8f9fa',
+                            muted: '#6b7280'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.08)',
+                        'sharp': '5px 5px 0px 0px rgba(183, 28, 28, 0.1)',
+                        'glow': '0 0 20px rgba(183, 28, 28, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Refinements */
+        body {
+            background-color: #fcfcfc;
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .tech-border {
+            position: relative;
+        }
+        .tech-border::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #b71c1c;
+        }
+
+        .sticky-num {
+            position: sticky;
+            top: 100px;
+        }
+
+        /* Smooth reveal for sections */
+        section {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body class="text-brand-black selection:bg-brand-red selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navigation: Glassmorphism + Technical Typography -->
+    <nav class="glass-panel fixed w-full top-0 z-50 border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand -->
+                <a href="https://www.chestnutridgesewing.com/" target="_blank" class="flex items-center gap-3 group">
+                    <img src="CRS-logo-no-bg.png" alt="Chestnut Ridge Sewing" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105">
+                    <span class="font-display font-black uppercase tracking-tighter text-lg leading-none">
+                        Chestnut Ridge Sewing
+                    </span>
+                </a>
+                
+                <!-- Support Action -->
+                <div class="flex items-center gap-6">
+                    <a href="tel:+13308933359" class="hidden md:flex items-center gap-2 font-mono text-xs font-bold text-gray-500 hover:text-brand-red transition-colors">
+                        <i class="fas fa-phone-alt"></i> (330) 893-3359
+                    </a>
+                    <a href="https://www.chestnutridgesewing.com/about-contact" target="_blank" class="bg-brand-black text-white px-5 py-2.5 rounded text-sm font-bold font-mono hover:bg-brand-red transition-all shadow-hover transform hover:-translate-y-0.5">
+                        GET SUPPORT
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: Clean Layout with Technical Data -->
+    <header class="pt-32 pb-16 lg:pt-40 lg:pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Text Content -->
+            <div class="lg:col-span-7 relative z-10">
+                <h1 class="font-display font-black text-5xl md:text-6xl lg:text-7xl tracking-tight text-brand-black mb-6 leading-[0.9]">
+                    Cabinet Lift <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-darkRed">Adjustment Guide</span>
+                </h1>
+                <p class="font-sans text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-8">
+                    This guide details the operation and fine-tuning of your pneumatic lift to ensure a perfectly flush sewing surface.
+                </p>
+                
+                <!-- Prerequisites Box (from App 2) -->
+                <div class="bg-white border-l-4 border-brand-red shadow-soft p-6 rounded-r-xl max-w-xl">
+                    <h3 class="font-mono text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Required Tools</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="flex items-center gap-2 font-sans font-medium text-sm bg-gray-50 px-3 py-1.5 rounded border border-gray-100">
+                            <i class="fas fa-wrench text-brand-red text-xs"></i> 8mm Wrench or Hex Driver
+                        </span>
+                        <span class="flex items-center gap-2 font-sans font-medium text-sm bg-gray-50 px-3 py-1.5 rounded border border-gray-100">
+                            <i class="fas fa-tape text-brand-red text-xs"></i> Measuring Tape (Optional)
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative/Visual Area -->
+            <div class="lg:col-span-5 relative hidden lg:block">
+                <div class="absolute inset-0 bg-brand-red/5 rounded-2xl transform rotate-3"></div>
+                <div class="bg-white p-1 rounded-2xl shadow-2xl relative z-10 transform transition-transform hover:-translate-y-2 duration-500">
+                    <img src="https://placehold.co/600x600/f8f9fa/b71c1c?text=CRS+Systems" alt="System Diagram" class="rounded-xl w-full">
+                    <!-- Floating Tech Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-brand-black text-white p-4 rounded-lg shadow-lg">
+                         <div class="font-mono text-xs text-gray-400">Compatibility</div>
+                         <div class="font-display font-bold text-2xl">ALL MODELS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: Hybrid Grid/Card System -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 space-y-24">
+
+        <!-- STEP 01: VIDEO & LOGIC -->
+        <section id="step1" class="relative grid lg:grid-cols-12 gap-8 lg:gap-16">
+            <!-- Sticky Number (App 2 Logic + App 1 Style) -->
+            <div class="hidden lg:block lg:col-span-1">
+                <div class="sticky-num flex flex-col items-center">
+                    <span class="font-mono text-xs font-bold text-gray-400 writing-vertical-rl mb-2">STEP</span>
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-red to-brand-darkRed text-white flex items-center justify-center font-display font-bold text-xl shadow-glow">01</div>
+                    <div class="h-32 w-px bg-gradient-to-b from-brand-red/50 to-transparent mt-4"></div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="lg:col-span-5 flex flex-col justify-center">
+                <h2 class="font-display font-black text-3xl md:text-4xl mb-6 tech-border pb-6">Push-to-Release Mechanism</h2>
+                <div class="space-y-6 font-sans text-gray-600 text-lg leading-relaxed">
+                    <p>Your cabinet features a three-position air lift: Storage, Sewing, and Flush. The mechanism relies on a "push-to-click" latch system.</p>
+                    
+                    <!-- Technical Breakdown Box -->
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 group hover:border-brand-red transition-colors">
+                            <div class="font-mono text-xs font-bold text-brand-red mb-1">OPERATION: RAISE</div>
+                            <p class="text-sm">Push down firmly until you hear a mechanical <span class="font-bold text-brand-black">click</span>, then release completely.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 group hover:border-brand-red transition-colors">
+                            <div class="font-mono text-xs font-bold text-brand-red mb-1">OPERATION: LOWER</div>
+                            <p class="text-sm">Push down until click. Allow mechanism to rise slightly (disengage), then push down freely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video (App 1 Style) -->
+            <div class="lg:col-span-6">
+                <div class="rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video relative group border-4 border-white">
+                    <iframe 
+                        src="https://drive.google.com/file/d/1dJ-AJgRdToKQZIo0GGJF5jKcZBtK5N2v/preview" 
+                        class="absolute inset-0 w-full h-full opacity-90 group-hover:opacity-100 transition-opacity"
+                        allow="autoplay" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <!-- Label Outside Video -->
+                <div class="mt-3 flex justify-end">
+                    <span class="inline-flex items-center gap-2 font-mono text-xs font-bold text-gray-500 bg-white px-3 py-1.5 rounded-full border border-gray-200 shadow-sm">
+                        <i class="fas fa-play text-brand-red text-[10px]"></i> WATCH DEMO
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 02: ADJUSTMENT -->
+        <section id="step2" class="relative grid lg:grid-cols-12 gap-8 lg:gap-16">
+            <div class="hidden lg:block lg:col-span-1">
+                <div class="sticky-num flex flex-col items-center">
+                    <span class="font-mono text-xs font-bold text-gray-400 writing-vertical-rl mb-2">STEP</span>
+                    <div class="w-12 h-12 rounded-full bg-white border-2 border-brand-red text-brand-red flex items-center justify-center font-display font-bold text-xl">02</div>
+                    <div class="h-32 w-px bg-gray-200 mt-4"></div>
+                </div>
+            </div>
+
+            <!-- Image First (Alternating Layout) -->
+            <div class="lg:col-span-6 order-2 lg:order-1">
+                <div class="relative rounded-2xl overflow-hidden shadow-soft group h-full min-h-[400px]">
+                    <img src="adjust.jpg" alt="Adjusting Bolts" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/e2e8f0/1e293b?text=Adjustment+Block+Location'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white max-w-xs">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-wrench text-brand-red text-xl"></i>
+                            <span class="font-mono text-xs font-bold uppercase tracking-wider">Important Note</span>
+                        </div>
+                        <p class="text-sm font-medium opacity-90">The black positioning block controls the "Center" stop height.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col justify-center order-1 lg:order-2">
+                <h2 class="font-display font-black text-3xl md:text-4xl mb-4 tech-border pb-4">Precision Leveling</h2>
+                <p class="font-sans text-gray-600 text-sm md:text-base mb-6">
+                    Your goal is to make the machine bed perfectly flush with the cabinet top in the "Center" position.
+                </p>
+                
+                <ul class="space-y-3 relative">
+                    <!-- Vertical connector line for the list -->
+                    <div class="absolute left-4 top-4 bottom-4 w-px bg-gray-200 -z-10"></div>
+
+                    <li class="flex items-start gap-4 bg-white p-2 rounded-lg border border-transparent hover:border-gray-100 transition-colors">
+                        <div class="w-8 h-8 rounded bg-brand-black text-white flex items-center justify-center flex-shrink-0 font-mono text-xs font-bold shadow-lg">1</div>
+                        <div>
+                            <strong class="block font-display text-sm text-brand-black uppercase tracking-wide">Diagnosis Check</strong>
+                            <span class="text-gray-600 text-sm">Place machine in Center Position and position acrylic insert around it. Check if the machine bed is too high or too low.</span>
+                        </div>
+                    </li>
+                    
+                    <li class="flex items-start gap-4 bg-white p-2 rounded-lg border border-transparent hover:border-gray-100 transition-colors">
+                        <div class="w-8 h-8 rounded bg-brand-black text-white flex items-center justify-center flex-shrink-0 font-mono text-xs font-bold shadow-lg">2</div>
+                        <div>
+                            <strong class="block font-display text-sm text-brand-black uppercase tracking-wide">Access Mechanism</strong>
+                            <span class="text-gray-600 text-sm">Remove acrylic insert and move lift to the <strong class="text-brand-red">Highest Position</strong> (top lock) to expose the adjustment block.</span>
+                        </div>
+                    </li>
+
+                    <li class="flex items-start gap-4 bg-white p-2 rounded-lg border border-transparent hover:border-gray-100 transition-colors">
+                        <div class="w-8 h-8 rounded bg-brand-black text-white flex items-center justify-center flex-shrink-0 font-mono text-xs font-bold shadow-lg">3</div>
+                        <div>
+                            <strong class="block font-display text-sm text-brand-black uppercase tracking-wide">Loosen & Adjust</strong>
+                            <span class="text-gray-600 text-sm block mb-1">Loosen the two 8mm nuts on the black block. <strong>Do not remove.</strong></span>
+                            <div class="text-xs font-mono bg-gray-50 p-2 rounded border border-gray-200 text-gray-500">
+                                <div class="flex justify-between"><span>Machine too <span class="text-brand-red font-bold">LOW?</span></span> <span>→ Slide block <span class="text-brand-black font-bold">UP</span></span></div>
+                                <div class="flex justify-between border-t border-gray-200 mt-1 pt-1"><span>Machine too <span class="text-brand-red font-bold">HIGH?</span></span> <span>→ Slide block <span class="text-brand-black font-bold">DOWN</span></span></div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="flex items-start gap-4 bg-white p-2 rounded-lg border border-transparent hover:border-gray-100 transition-colors">
+                        <div class="w-8 h-8 rounded bg-brand-black text-white flex items-center justify-center flex-shrink-0 font-mono text-xs font-bold shadow-lg">4</div>
+                        <div>
+                            <strong class="block font-display text-sm text-brand-black uppercase tracking-wide">Verify</strong>
+                            <span class="text-gray-600 text-sm">Tighten nuts securely. Return to Center Position to verify flushness. Repeat if needed.</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Pro Tip Box -->
+                <div class="mt-4 flex items-start gap-3 bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <i class="fas fa-lightbulb text-blue-500 mt-1"></i>
+                    <div class="text-xs text-blue-800">
+                        <strong>Pro Tip:</strong> Small adjustments make a big difference. Use your acrylic insert as the ultimate guide for perfect alignment.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 03: INSERT -->
+        <section id="step3" class="relative grid lg:grid-cols-12 gap-8 lg:gap-16">
+            <div class="hidden lg:block lg:col-span-1">
+                <div class="sticky-num flex flex-col items-center">
+                    <span class="font-mono text-xs font-bold text-gray-400 writing-vertical-rl mb-2">STEP</span>
+                    <div class="w-12 h-12 rounded-full bg-white border-2 border-brand-red text-brand-red flex items-center justify-center font-display font-bold text-xl">03</div>
+                    <div class="h-32 w-px bg-gray-200 mt-4"></div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col justify-center">
+                <h2 class="font-display font-black text-3xl md:text-4xl mb-6 tech-border pb-6">Insert Installation</h2>
+                <p class="font-sans text-gray-600 text-lg mb-6">
+                    Move lift to the middle position. Fit the custom acrylic insert over the free arm.
+                </p>
+                
+                <!-- Warning Block (Remixed) -->
+                <div class="bg-red-50 border border-red-100 p-6 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-2 -mr-2 w-16 h-16 bg-brand-red opacity-10 rounded-full"></div>
+                    
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-exclamation-triangle text-brand-red text-xl"></i>
+                        <span class="font-mono font-bold text-brand-red text-sm uppercase tracking-wide">Warning</span>
+                    </div>
+                    <p class="text-brand-darkRed text-sm font-medium leading-relaxed">
+                        Remove accessory trays from your machine <strong>before</strong> installing the insert. The insert is precision-cut for the machine's free arm only.
+                    </p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6">
+                <div class="relative rounded-2xl overflow-hidden shadow-soft group">
+                    <img src="insert.jpg" alt="Insert Installation" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/e2e8f0/1e293b?text=Insert+Photo'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 04: STORAGE -->
+        <section id="step4" class="relative grid lg:grid-cols-12 gap-8 lg:gap-16">
+            <div class="hidden lg:block lg:col-span-1">
+                <div class="sticky-num flex flex-col items-center">
+                    <span class="font-mono text-xs font-bold text-gray-400 writing-vertical-rl mb-2">STEP</span>
+                    <div class="w-12 h-12 rounded-full bg-white border-2 border-brand-red text-brand-red flex items-center justify-center font-display font-bold text-xl">04</div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 order-2 lg:order-1">
+                <div class="relative rounded-2xl overflow-hidden shadow-soft group">
+                    <img src="store.jpg" alt="Storage Mode" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/e2e8f0/1e293b?text=Storage+Photo'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col justify-center order-1 lg:order-2">
+                <h2 class="font-display font-black text-3xl md:text-4xl mb-6 tech-border pb-6">Storage Mode</h2>
+                <p class="font-sans text-gray-600 text-lg mb-6">
+                    Convert your cabinet into a flat workspace.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded bg-brand-black text-white flex items-center justify-center flex-shrink-0 font-mono text-sm">A</div>
+                        <div>
+                            <strong class="block font-display text-brand-black">Remove Insert</strong>
+                            <span class="text-gray-500 text-sm">Remove the custom acrylic insert from the cabinet.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded bg-brand-black text-white flex items-center justify-center flex-shrink-0 font-mono text-sm">B</div>
+                        <div>
+                            <strong class="block font-display text-brand-black">Release Lock</strong>
+                            <span class="text-gray-500 text-sm">Press down firmly on the machine to release the lock.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded bg-brand-black text-white flex items-center justify-center flex-shrink-0 font-mono text-sm">C</div>
+                        <div>
+                            <strong class="block font-display text-brand-black">Disengage</strong>
+                            <span class="text-gray-500 text-sm">Allow the lift to rise slightly to disengage the mechanism.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded bg-brand-black text-white flex items-center justify-center flex-shrink-0 font-mono text-sm">D</div>
+                        <div>
+                            <strong class="block font-display text-brand-black">Lower Machine</strong>
+                            <span class="text-gray-500 text-sm">Push fully down until it clicks into the bottom storage position.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Support CTA (Refined) -->
+        <div class="bg-brand-black rounded-3xl p-8 md:p-16 relative overflow-hidden text-center shadow-2xl">
+             <!-- Abstract Shapes -->
+             <div class="absolute top-0 left-0 w-64 h-64 bg-brand-red opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+             <div class="absolute bottom-0 right-0 w-64 h-64 bg-brand-red opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+             <div class="relative z-10 max-w-2xl mx-auto">
+                 <h2 class="font-display font-black text-4xl text-white mb-6">Need Assistance?</h2>
+                 <p class="font-sans text-gray-400 text-lg mb-10">
+                     If you're having trouble adjusting your lift or need parts, our support team is here to help.
+                 </p>
+                 <div class="flex flex-col sm:flex-row justify-center gap-4">
+                     <a href="tel:+13308933359" class="bg-white text-brand-black px-8 py-4 rounded-lg font-bold font-display tracking-wide hover:bg-brand-red hover:text-white transition-all duration-300 shadow-lg">
+                         <i class="fas fa-phone-alt mr-2"></i> (330) 893-3359
+                     </a>
+                     <a href="https://www.chestnutridgesewing.com/about-contact" target="_blank" class="border border-gray-700 text-white px-8 py-4 rounded-lg font-bold font-display tracking-wide hover:border-white transition-all duration-300">
+                         GET SUPPORT
+                     </a>
+                 </div>
+             </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
+                 <img src="CRS-logo-no-bg.png" alt="Logo" class="h-8 w-auto" onerror="this.style.display='none'">
+                 <span class="font-bold text-sm leading-none uppercase">Chestnut Ridge Sewing</span>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="font-mono text-xs text-gray-400 mb-1">5079 Township Road 401, Millersburg, OH 44654</p>
+                <p class="font-sans text-sm font-bold text-gray-900">&copy; 2025 Chestnut Ridge Sewing.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
